@@ -33,3 +33,13 @@ const salaries = {
 console.log(salaries.total());
 salaries.manager = 7000;
 console.log(salaries.total());
+
+function Computer (brand, system, cost){
+   this.brand = brand;
+   this.system = system;
+   this.cost = cost;
+}
+let dell = new Computer('Dell', 'windows', 800);
+console.log(dell.cost);
+let apple = new Computer('Apple', 'MacOS', 1700);
+console.log(apple.cost);
