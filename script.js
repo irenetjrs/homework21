@@ -1,3 +1,5 @@
+// task 1
+
 const car = {
    model: 'Ford',
    year: 2020,
@@ -12,6 +14,8 @@ console.log(car.color);
 car.type = 'electric';
 console.log(car.type);
 car.signal();
+
+// task2
 
 const salaries = {
    frontend: 12000,
@@ -34,12 +38,28 @@ console.log(salaries.total());
 salaries.manager = 7000;
 console.log(salaries.total());
 
+// task 3/4
+
 function Computer (brand, system, cost){
    this.brand = brand;
    this.system = system;
    this.cost = cost;
+   this[Symbol.toPrimitive] = function (hint){
+      switch(hint){
+         case 'string':
+            return this.brand;
+         case 'number':
+            return this.cost;
+         case 'default':
+            return ' ' + this.brand + ' ' + this.system + ' ' + this.cost + ' // ';
+      }
+   }
 }
 let dell = new Computer('Dell', 'windows', 800);
 console.log(dell.cost);
 let apple = new Computer('Apple', 'MacOS', 1700);
 console.log(apple.cost);
+
+console.log(String(dell));
+console.log(+apple);
+console.log(dell+apple);
